@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Split Hero Section - Shopify Section | Live Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --hero-accent: #6366F1;
+      --hero-bg: #0a0a0b;
+      --hero-text: #FFFFFF;
+      --hero-font-heading: 'Poppins', sans-serif;
+      --hero-font-body: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #050505;
+      font-family: var(--hero-font-body);
+      color: #fff;
+    }
+
+    /* ============================================
+       LANDING PAGE STYLES
+       ============================================ */
+    .landing-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 11, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .landing-logo {
+      font-family: var(--hero-font-heading);
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--hero-accent);
+    }
+
+    .landing-nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .landing-nav a {
+      color: #888;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .landing-nav a:hover {
+      color: #fff;
+    }
+
+    .landing-cta {
+      background: var(--hero-accent);
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .landing-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Hero Landing */
+    .landing-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+    }
+
+    .landing-hero-content {
+      max-width: 900px;
+    }
+
+    .landing-badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--hero-accent);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .landing-title {
+      font-family: var(--hero-font-heading);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .landing-subtitle {
+      font-size: 1.25rem;
+      color: #888;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .landing-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--hero-accent), #8b5cf6);
+      color: #fff;
+      padding: 15px 35px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 15px 35px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    /* Features Grid */
+    .features-section {
+      padding: 100px 40px;
+      background: #0a0a0b;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: var(--hero-font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 35px;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(99, 102, 241, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-family: var(--hero-font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      color: #888;
+      line-height: 1.6;
+    }
+
+    /* Demo Section */
+    .demo-section {
+      padding: 100px 20px;
+      background: linear-gradient(180deg, #0a0a0b 0%, #111 100%);
+    }
+
+    .demo-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .demo-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .demo-btn.active {
+      background: var(--hero-accent);
+      border-color: var(--hero-accent);
+    }
+
+    .demo-btn:hover:not(.active) {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .demo-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Mobile Frame */
+    .mobile-frame {
+      display: none;
+      width: 375px;
+      height: 700px;
+      margin: 0 auto;
+      border: 8px solid #333;
+      border-radius: 45px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+
+    .mobile-frame.active {
+      display: block;
+    }
+
+    .mobile-frame .split-hero-section {
+      height: 100%;
+    }
+
+    .mobile-frame .hero-desktop-container {
+      display: none !important;
+    }
+
+    .mobile-frame .hero-mobile-container {
+      display: flex !important;
+    }
+
+    /* ============================================
+       PREMIUM SPLIT HERO SECTION - THE PRODUCT
+       ============================================ */
+
+    .split-hero-section {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--hero-bg);
+      color: var(--hero-text);
+      font-family: var(--hero-font-body);
+    }
+
+    .hero-sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* --- DESKTOP --- */
+    .hero-desktop-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-split-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    /* Column variations */
+    .hero-split-wrapper.cols-2 .hero-column { width: 50%; }
+    .hero-split-wrapper.cols-3 .hero-column { width: 33.333%; }
+    .hero-split-wrapper.cols-4 .hero-column { width: 25%; }
+
+    .hero-column {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: inset 0 -40px 60px rgba(0, 0, 0, 0.6);
+      perspective: 1000px;
+    }
+
+    .hero-column:hover {
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4), inset 0 -60px 100px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+
+    .hero-column-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(100%) brightness(65%);
+      transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: filter, transform;
+      transform: scale(1.05);
+    }
+
+    .hero-column:hover .hero-column-img {
+      filter: grayscale(0%) brightness(100%);
+      transform: scale(1.1) translateY(-8px);
+    }
+
+    .hero-column-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    .hero-column-link:focus {
+      outline: 3px solid var(--hero-accent);
+      outline-offset: -3px;
+    }
+
+    .hero-column-content {
+      position: absolute;
+      bottom: 80px;
+      z-index: 3;
+      color: var(--hero-text);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      pointer-events: none;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
+      padding: 0 25px;
+      width: 100%;
+    }
+
+    .hero-column:hover .hero-column-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-column-title {
+      font-family: var(--hero-font-heading);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 3.5rem);
+      margin: 0 0 12px 0;
+      color: var(--hero-text);
+    }
+
+    .hero-column-subtitle {
+      font-family: var(--hero-font-body);
+      font-weight: 500;
+      font-size: clamp(0.9rem, 1.5vw, 1.25rem);
+      max-width: 90%;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Center Content Desktop */
+    .hero-center-content {
+      position: absolute;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      pointer-events: none;
+      transition: opacity 0.5s ease-in-out;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .hero-center-logo {
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
+    }
+
+    .hero-center-text {
+      font-family: var(--hero-font-heading);
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: var(--hero-accent);
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+    }
+
+    .hero-center-heading {
+      font-family: var(--hero-font-heading);
+      font-weight: 600;
+      font-size: clamp(1.8rem, 4vw, 3.5rem);
+      color: var(--hero-text);
+      margin: 0;
+      text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-split-wrapper:hover ~ .hero-center-content {
+      opacity: 0;
+    }
+
+    /* --- MOBILE --- */
+    .hero-mobile-container {
+      display: none;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: var(--hero-bg);
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .hero-mobile-header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding-top: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-mobile-welcome {
+      font-family: var(--hero-font-body);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--hero-accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin: 0 0 8px 0;
+    }
+
+    .hero-mobile-title {
+      font-family: var(--hero-font-heading);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 7vw, 2.5rem);
+      color: var(--hero-text);
+      margin: 0;
+    }
+
+    .hero-cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      width: 100%;
+      max-width: 420px;
+      padding-bottom: 20px;
+    }
+
+    .hero-card-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transition: height 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease-in-out;
+      border: none !important;
+      outline: none !important;
+      background: none;
+      padding: 0;
+      will-change: transform, height, box-shadow;
+    }
+
+    .hero-card-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.55) saturate(0.8);
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .hero-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .hero-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      width: 100%;
+      text-align: center;
+      color: var(--hero-text);
+      padding: 30px 25px 25px;
+      opacity: 0;
+      transform: translateY(25px);
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .hero-card-title {
+      font-family: var(--hero-font-heading);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--hero-text);
+      margin: 0 0 8px 0;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+    }
+
+    .hero-card-subtitle {
+      font-family: var(--hero-font-body);
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 15px 0;
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+    }
+
+    .hero-card-btn {
+      display: inline-block;
+      background-color: var(--hero-accent);
+      color: var(--hero-text);
+      font-family: var(--hero-font-heading);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+      transition: all 0.3s ease-in-out;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+    }
+
+    .hero-card-wrapper.is-active .hero-card-btn {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .hero-card-wrapper.is-active .hero-card-btn:hover {
+      filter: brightness(1.15);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+    }
+
+    /* Notification Dot */
+    .hero-notification-dot {
+      position: absolute;
+      left: 50%;
+      bottom: 25px;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      background-color: #ef4444;
+      border-radius: 50%;
+      z-index: 5;
+      pointer-events: none;
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 1);
+      animation: hero-pulse 2s infinite;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .hero-card-wrapper.is-active .hero-notification-dot {
+      opacity: 0;
+    }
+
+    @keyframes hero-pulse {
+      0% {
+        transform: translateX(-50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+      }
+      70% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
+      }
+      100% {
+        transform: translateX(-50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+      }
+    }
+
+    /* Active Card State */
+    .hero-card-wrapper.is-active .hero-card {
+      height: 380px;
+      box-shadow: 0 0 25px rgba(99, 102, 241, 0.5) !important;
+      transform: translateY(-5px);
+    }
+
+    .hero-card-wrapper.is-active .hero-card-img {
+      filter: brightness(1) saturate(1);
+      transform: scale(1.05);
+    }
+
+    .hero-card-wrapper.is-active .hero-card::after {
+      opacity: 1;
+    }
+
+    .hero-card-wrapper.is-active .hero-card-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .split-hero-section {
+        height: auto;
+        min-height: 100vh;
+        display: block;
+      }
+      .hero-desktop-container {
+        display: none;
+      }
+      .hero-mobile-container {
+        display: flex;
+      }
+    }
+
+    /* Color Themes Preview */
+    .theme-indigo { --hero-accent: #6366F1; }
+    .theme-emerald { --hero-accent: #10B981; }
+    .theme-rose { --hero-accent: #F43F5E; }
+    .theme-amber { --hero-accent: #F59E0B; }
+    .theme-cyan { --hero-accent: #06B6D4; }
+
+    /* ============================================
+       DOCUMENTATION SECTION
+       ============================================ */
+    .docs-section {
+      padding: 100px 40px;
+      background: #0a0a0b;
+    }
+
+    .docs-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .docs-block {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 30px;
+    }
+
+    .docs-block h3 {
+      font-family: var(--hero-font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--hero-accent);
+    }
+
+    .docs-block h4 {
+      font-size: 1.1rem;
+      margin: 25px 0 15px;
+      color: #fff;
+    }
+
+    .docs-block p, .docs-block li {
+      color: #aaa;
+      line-height: 1.8;
+    }
+
+    .docs-block ul {
+      padding-left: 25px;
+    }
+
+    .docs-block li {
+      margin-bottom: 8px;
+    }
+
+    .docs-code {
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px 0;
+      overflow-x: auto;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 0.9rem;
+      color: #10B981;
+      border: 1px solid #333;
+    }
+
+    .docs-step {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      align-items: flex-start;
+    }
+
+    .docs-step-num {
+      background: var(--hero-accent);
+      color: #fff;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .docs-step-content h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      padding: 100px 40px;
+      background: linear-gradient(180deg, #111 0%, #0a0a0b 100%);
+      text-align: center;
+    }
+
+    .pricing-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+      border: 2px solid rgba(99, 102, 241, 0.3);
+      border-radius: 24px;
+      padding: 50px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .pricing-badge {
+      background: var(--hero-accent);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 25px;
+    }
+
+    .pricing-amount {
+      font-family: var(--hero-font-heading);
+      font-size: 4rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .pricing-amount span {
+      font-size: 1.5rem;
+      color: #888;
+    }
+
+    .pricing-desc {
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    .pricing-features {
+      text-align: left;
+      margin-bottom: 35px;
+    }
+
+    .pricing-features li {
+      color: #ccc;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: #10B981;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .landing-footer {
+      padding: 50px 40px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .landing-footer p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .landing-header {
+        padding: 15px 20px;
+      }
+      .landing-nav {
+        display: none;
+      }
+      .features-section,
+      .docs-section,
+      .pricing-section {
+        padding: 60px 20px;
+      }
+      .docs-block {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Landing Header -->
+  <header class="landing-header">
+    <div class="landing-logo">SPLIT HERO PRO</div>
+    <nav class="landing-nav">
+      <a href="#features">Features</a>
+      <a href="#demo">Live Demo</a>
+      <a href="#docs">Documentation</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a href="#pricing" class="landing-cta">Get It Now</a>
+  </header>
+
+  <!-- Landing Hero -->
+  <section class="landing-hero">
+    <div class="landing-hero-content">
+      <div class="landing-badge">⚡ Premium Shopify Section</div>
+      <h1 class="landing-title">Premium Split Hero Section</h1>
+      <p class="landing-subtitle">A stunning, conversion-optimized hero section with smooth animations, mobile-first design, and complete Shopify Theme Editor integration. No coding required.</p>
+      <div class="landing-buttons">
+        <a href="#demo" class="btn-primary">View Live Demo</a>
+        <a href="#docs" class="btn-secondary">Read Documentation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features-section" id="features">
+    <h2 class="section-title">Why Choose This Section?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3 class="feature-title">2, 3 & 4 Column Layouts</h3>
+        <p class="feature-desc">Choose between 2, 3, or 4 column layouts directly from the Theme Editor. Perfect for any collection or category setup.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3 class="feature-title">Mobile-First Design</h3>
+        <p class="feature-desc">Unique expandable card system on mobile with attention-grabbing notification dots. Optimized for touch interactions.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3 class="feature-title">Premium Animations</h3>
+        <p class="feature-desc">Smooth grayscale-to-color transitions, elegant hover effects, and buttery 60fps animations throughout.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3 class="feature-title">Full Customization</h3>
+        <p class="feature-desc">Colors, fonts, images, text - everything is customizable from the Shopify Theme Editor. Zero coding needed.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">♿</div>
+        <h3 class="feature-title">Accessibility Ready</h3>
+        <p class="feature-desc">Built with ARIA labels, keyboard navigation, screen reader support, and focus states. WCAG compliant.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">Performance Optimized</h3>
+        <p class="feature-desc">Lazy loading, optimized images, minimal JavaScript. Scores 90+ on PageSpeed Insights.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section class="demo-section" id="demo">
+    <h2 class="section-title">Live Demo</h2>
+    
+    <div class="demo-controls">
+      <button class="demo-btn active" onclick="showColumns(2)">2 Columns</button>
+      <button class="demo-btn" onclick="showColumns(3)">3 Columns</button>
+      <button class="demo-btn" onclick="showColumns(4)">4 Columns</button>
+      <button class="demo-btn" onclick="showMobileDemo()">📱 Mobile</button>
+      <button class="demo-btn" onclick="showDesktopDemo()">💻 Desktop</button>
+    </div>
+
+    <div class="demo-controls">
+      <button class="demo-btn theme-btn active" onclick="setTheme('indigo')">Indigo</button>
+      <button class="demo-btn theme-btn" onclick="setTheme('emerald')">Emerald</button>
+      <button class="demo-btn theme-btn" onclick="setTheme('rose')">Rose</button>
+      <button class="demo-btn theme-btn" onclick="setTheme('amber')">Amber</button>
+      <button class="demo-btn theme-btn" onclick="setTheme('cyan')">Cyan</button>
+    </div>
+
+    <!-- Desktop Demo -->
+    <div class="demo-container" id="desktop-demo">
+      <section class="split-hero-section theme-indigo" id="hero-section">
+        <h1 class="hero-sr-only">Discover Our Premium Collections</h1>
+
+        <div class="hero-desktop-container">
+          <div class="hero-split-wrapper cols-2" id="split-wrapper">
+            
+            <article class="hero-column">
+              <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1200&h=1600&fit=crop" 
+                   alt="Woman in elegant fashion" 
+                   class="hero-column-img">
+              <a href="#" class="hero-column-link" aria-label="Women's Collection">
+                <span class="hero-sr-only">Explore</span>
+              </a>
+              <div class="hero-column-content" aria-hidden="true">
+                <h2 class="hero-column-title">Women</h2>
+                <p class="hero-column-subtitle">Elegant styles for the modern woman</p>
+              </div>
+            </article>
+
+            <article class="hero-column">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=1600&fit=crop" 
+                   alt="Man in casual style" 
+                   class="hero-column-img">
+              <a href="#" class="hero-column-link" aria-label="Men's Collection">
+                <span class="hero-sr-only">Explore</span>
+              </a>
+              <div class="hero-column-content" aria-hidden="true">
+                <h2 class="hero-column-title">Men</h2>
+                <p class="hero-column-subtitle">Contemporary fashion for him</p>
+              </div>
+            </article>
+
+            <article class="hero-column" id="col3" style="display: none;">
+              <img src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=1200&h=1600&fit=crop" 
+                   alt="Kids fashion" 
+                   class="hero-column-img">
+              <a href="#" class="hero-column-link" aria-label="Kids Collection">
+                <span class="hero-sr-only">Explore</span>
+              </a>
+              <div class="hero-column-content" aria-hidden="true">
+                <h2 class="hero-column-title">Kids</h2>
+                <p class="hero-column-subtitle">Fun and colorful styles</p>
+              </div>
+            </article>
+
+            <article class="hero-column" id="col4" style="display: none;">
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=1600&fit=crop" 
+                   alt="Accessories collection" 
+                   class="hero-column-img">
+              <a href="#" class="hero-column-link" aria-label="Accessories">
+                <span class="hero-sr-only">Explore</span>
+              </a>
+              <div class="hero-column-content" aria-hidden="true">
+                <h2 class="hero-column-title">Accessories</h2>
+                <p class="hero-column-subtitle">Complete your look</p>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="hero-center-content" aria-hidden="true">
+            <div class="hero-center-text">YOUR BRAND</div>
+            <h2 class="hero-center-heading">Choose Your Style</h2>
+          </div>
+        </div>
+
+        <div class="hero-mobile-container">
+          <header class="hero-mobile-header">
+            <p class="hero-mobile-welcome">Welcome to Our Store</p>
+            <h2 class="hero-mobile-title">Choose Your Style</h2>
+          </header>
+
+          <div class="hero-cards-container">
+            <article class="hero-card-wrapper">
+              <div class="hero-card" role="button" tabindex="0" aria-expanded="false">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&h=1000&fit=crop" 
+                     alt="Women's Collection" class="hero-card-img">
+                <div class="hero-notification-dot"></div>
+                <div class="hero-card-content">
+                  <h3 class="hero-card-title">Women</h3>
+                  <p class="hero-card-subtitle">Elegant styles for the modern woman</p>
+                  <a href="#" class="hero-card-btn">Shop Women</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="hero-card-wrapper">
+              <div class="hero-card" role="button" tabindex="0" aria-expanded="false">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop" 
+                     alt="Men's Collection" class="hero-card-img">
+                <div class="hero-notification-dot"></div>
+                <div class="hero-card-content">
+                  <h3 class="hero-card-title">Men</h3>
+                  <p class="hero-card-subtitle">Contemporary fashion for him</p>
+                  <a href="#" class="hero-card-btn">Shop Men</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Mobile Frame Demo -->
+    <div class="mobile-frame" id="mobile-demo">
+      <section class="split-hero-section theme-indigo">
+        <div class="hero-mobile-container" style="display: flex;">
+          <header class="hero-mobile-header">
+            <p class="hero-mobile-welcome">Welcome to Our Store</p>
+            <h2 class="hero-mobile-title">Choose Your Style</h2>
+          </header>
+
+          <div class="hero-cards-container" id="mobile-cards">
+            <article class="hero-card-wrapper">
+              <div class="hero-card" role="button" tabindex="0" aria-expanded="false">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&h=1000&fit=crop" 
+                     alt="Women's Collection" class="hero-card-img">
+                <div class="hero-notification-dot"></div>
+                <div class="hero-card-content">
+                  <h3 class="hero-card-title">Women</h3>
+                  <p class="hero-card-subtitle">Elegant styles for the modern woman</p>
+                  <a href="#" class="hero-card-btn">Shop Women</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="hero-card-wrapper">
+              <div class="hero-card" role="button" tabindex="0" aria-expanded="false">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop" 
+                     alt="Men's Collection" class="hero-card-img">
+                <div class="hero-notification-dot"></div>
+                <div class="hero-card-content">
+                  <h3 class="hero-card-title">Men</h3>
+                  <p class="hero-card-subtitle">Contemporary fashion for him</p>
+                  <a href="#" class="hero-card-btn">Shop Men</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- Documentation -->
+  <section class="docs-section" id="docs">
+    <h2 class="section-title">Documentation</h2>
+    
+    <div class="docs-container">
+      
+      <div class="docs-block">
+        <h3>📦 Installation Guide</h3>
+        
+        <div class="docs-step">
+          <div class="docs-step-num">1</div>
+          <div class="docs-step-content">
+            <h4>Access Theme Files</h4>
+            <p>Go to your Shopify Admin → Online Store → Themes → Actions → Edit Code</p>
+          </div>
+        </div>
+
+        <div class="docs-step">
+          <div class="docs-step-num">2</div>
+          <div class="docs-step-content">
+            <h4>Create New Section</h4>
+            <p>In the Sections folder, click "Add a new section" → Name it <strong>premium-split-hero</strong> → Delete all default code</p>
+          </div>
+        </div>
+
+        <div class="docs-step">
+          <div class="docs-step-num">3</div>
+          <div class="docs-step-content">
+            <h4>Paste Code</h4>
+            <p>Copy the entire content from the provided <strong>premium-split-hero.liquid</strong> file and paste it into your new section</p>
+          </div>
+        </div>
+
+        <div class="docs-step">
+          <div class="docs-step-num">4</div>
+          <div class="docs-step-content">
+            <h4>Add to Page</h4>
+            <p>Go to Customize → Add Section → Find "Premium Split Hero" → Configure settings</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="docs-block">
+        <h3>⚙️ Configuration Options</h3>
+        
+        <h4>Layout Settings</h4>
+        <ul>
+          <li><strong>Number of Columns:</strong> Choose 2, 3, or 4 columns for desktop view</li>
+          <li><strong>Mobile Card Height:</strong> Collapsed and expanded heights (default: 200px / 380px)</li>
+        </ul>
+
+        <h4>Images</h4>
+        <ul>
+          <li><strong>Desktop Images:</strong> Recommended size 1200x1600px (portrait orientation)</li>
+          <li><strong>Mobile Images:</strong> Recommended size 800x1000px</li>
+          <li><strong>Formats:</strong> JPG, PNG, or WebP supported</li>
+        </ul>
+
+        <h4>Colors & Styling</h4>
+        <ul>
+          <li><strong>Accent Color:</strong> Used for buttons, highlights, and glow effects</li>
+          <li><strong>Background Color:</strong> Section background (default: #0a0a0b)</li>
+          <li><strong>Text Color:</strong> All text elements (default: #FFFFFF)</li>
+        </ul>
+
+        <h4>Content</h4>
+        <ul>
+          <li><strong>Center Logo:</strong> Optional logo image for desktop center</li>
+          <li><strong>Headings:</strong> Main H1 (SEO), center text, mobile welcome text</li>
+          <li><strong>Per Column:</strong> Title, subtitle, link, button text, alt text</li>
+        </ul>
+      </div>
+
+      <div class="docs-block">
+        <h3>🎨 Theme Compatibility</h3>
+        <p>This section is tested and compatible with:</p>
+        <ul>
+          <li>✅ Dawn (Free Shopify Theme)</li>
+          <li>✅ Debut</li>
+          <li>✅ Prestige</li>
+          <li>✅ Impulse</li>
+          <li>✅ Turbo</li>
+          <li>✅ Most OS 2.0 Themes</li>
+        </ul>
+        <p style="margin-top: 15px; color: #888;">If you encounter any issues with your specific theme, contact support with your theme name and we'll help you integrate it.</p>
+      </div>
+
+      <div class="docs-block">
+        <h3>🚀 Performance Tips</h3>
+        <ul>
+          <li><strong>Image Optimization:</strong> Use compressed images (TinyPNG, Squoosh) before uploading</li>
+          <li><strong>Image Format:</strong> WebP provides best quality-to-size ratio</li>
+          <li><strong>Lazy Loading:</strong> Mobile images use native lazy loading by default</li>
+          <li><strong>Desktop Priority:</strong> Desktop images use fetchpriority="high" for faster LCP</li>
+        </ul>
+      </div>
+
+      <div class="docs-block">
+        <h3>❓ Troubleshooting</h3>
+        
+        <h4>Images not showing?</h4>
+        <p>Make sure you've uploaded images in the Theme Editor. Placeholder images show when no image is selected.</p>
+
+        <h4>Animations not working?</h4>
+        <p>Check if you have any CSS that might conflict with the section. The section uses the prefix <code>hero-</code> for all classes to avoid conflicts.</p>
+
+        <h4>Mobile layout issues?</h4>
+        <p>The section uses <code>768px</code> as the breakpoint. If your theme uses different breakpoints, you can adjust this in the CSS.</p>
+
+        <h4>Center content not fading?</h4>
+        <p>The center content fades when hovering over split columns. This is intentional desktop behavior.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- What You Can Customize in Shopify -->
+  <section class="features-section" id="shopify-editor">
+    <h2 class="section-title">🎛️ Full Shopify Theme Editor Control</h2>
+    <p style="text-align: center; color: #888; max-width: 700px; margin: -40px auto 50px; font-size: 1.1rem;">Your customers can customize EVERYTHING without touching code</p>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🖼️</div>
+        <h3 class="feature-title">Upload Images</h3>
+        <p class="feature-desc">Separate desktop & mobile images per column. Just click and upload - Shopify handles optimization automatically.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3 class="feature-title">Color Picker</h3>
+        <p class="feature-desc">Accent color, background, text, notification dot - all with native Shopify color pickers. No hex codes needed.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3 class="feature-title">Edit All Text</h3>
+        <p class="feature-desc">Headlines, subtitles, button text, SEO H1 - every text field is editable. Supports any language.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <h3 class="feature-title">Link to Collections</h3>
+        <p class="feature-desc">Native Shopify URL picker. Link to collections, products, pages or external URLs with one click.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📐</div>
+        <h3 class="feature-title">Adjust Heights</h3>
+        <p class="feature-desc">Section height, card collapsed/expanded height - all adjustable with sliders. Perfect for any design.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">➕</div>
+        <h3 class="feature-title">Add/Remove Columns</h3>
+        <p class="feature-desc">Dynamic blocks - add up to 4 columns. Each column has its own images, text, and link settings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing-section" id="pricing">
+    <h2 class="section-title">Get It Now</h2>
+    
+    <div class="pricing-card">
+      <div class="pricing-badge">UNLIMITED LICENSE</div>
+      <div class="pricing-amount">€199 <span>one-time</span></div>
+      <p class="pricing-desc">Use on unlimited client stores, forever</p>
+      
+      <ul class="pricing-features">
+        <li>Complete Liquid Section Code (.liquid file)</li>
+        <li>2, 3 & 4 Column Layouts</li>
+        <li>Desktop + Mobile Optimized</li>
+        <li>Full Theme Editor Integration (no coding!)</li>
+        <li>Works with Dawn, Prestige, Impulse & more</li>
+        <li>Step-by-Step PDF Documentation</li>
+        <li>30 Days Priority Email Support</li>
+        <li>Lifetime Updates</li>
+        <li>Commercial Use Allowed</li>
+      </ul>
+
+      <a href="#" class="btn-primary" style="width: 100%; display: block; text-align: center;">Purchase Now</a>
+      
+      <p style="margin-top: 20px; font-size: 0.85rem; color: #666;">Instant delivery via email • Secure payment</p>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="docs-section" id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="docs-container">
+      <div class="docs-block">
+        <h3>❓ What exactly do I get?</h3>
+        <p style="color: #ccc;">You receive a single <code>.liquid</code> file that you paste into your Shopify theme. That's it! No apps, no subscriptions, no dependencies. The section then appears in your Theme Editor where you can customize everything visually.</p>
+      </div>
+      
+      <div class="docs-block">
+        <h3>❓ Will this work with my theme?</h3>
+        <p style="color: #ccc;">Yes! This section is compatible with all Shopify OS 2.0 themes including Dawn (free), Prestige, Impulse, Turbo, and hundreds more. If you have issues with a specific theme, I'll help you fix it within 24 hours.</p>
+      </div>
+      
+      <div class="docs-block">
+        <h3>❓ Can I use this on client stores?</h3>
+        <p style="color: #ccc;">Absolutely! The unlimited license allows you to use this section on as many stores as you want - your own stores or client projects. No per-store fees, ever.</p>
+      </div>
+      
+      <div class="docs-block">
+        <h3>❓ Do I need coding knowledge?</h3>
+        <p style="color: #ccc;">No! Installation takes 2 minutes (just copy & paste). After that, everything is customizable through Shopify's visual Theme Editor - colors, images, text, links. Zero coding required.</p>
+      </div>
+      
+      <div class="docs-block">
+        <h3>❓ What if I need help?</h3>
+        <p style="color: #ccc;">You get 30 days of priority email support. Most questions are answered within 24 hours. I can even help with minor customizations if needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <p>© 2024 Premium Split Hero Section. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile Card Toggle
+    (function() {
+      'use strict';
+
+      function initHeroCards(container) {
+        const wrappers = container.querySelectorAll('.hero-card-wrapper');
+        const mobileContainer = container.querySelector('.hero-mobile-container') || container.querySelector('.hero-cards-container');
+
+        if (!mobileContainer || wrappers.length === 0) return;
+
+        function activateCard(targetWrapper) {
+          const card = targetWrapper.querySelector('.hero-card');
+          if (!card) return;
+
+          const isAlreadyActive = targetWrapper.classList.contains('is-active');
+
+          wrappers.forEach(w => {
+            w.classList.remove('is-active');
+            const c = w.querySelector('.hero-card');
+            if (c) c.setAttribute('aria-expanded', 'false');
+          });
+
+          if (!isAlreadyActive) {
+            targetWrapper.classList.add('is-active');
+            card.setAttribute('aria-expanded', 'true');
+          }
+        }
+
+        function closeAllCards() {
+          wrappers.forEach(w => {
+            w.classList.remove('is-active');
+            const c = w.querySelector('.hero-card');
+            if (c) c.setAttribute('aria-expanded', 'false');
+          });
+        }
+
+        function handleClick(e) {
+          if (e.target.closest('.hero-card-btn')) {
+            e.stopPropagation();
+            return;
+          }
+
+          const clickedCard = e.target.closest('.hero-card');
+
+          if (clickedCard) {
+            const wrapper = clickedCard.closest('.hero-card-wrapper');
+            if (!wrapper) return;
+            e.preventDefault();
+            activateCard(wrapper);
+          } else if (!e.target.closest('.hero-card-wrapper')) {
+            closeAllCards();
+          }
+        }
+
+        mobileContainer.addEventListener('click', handleClick);
+      }
+
+      // Init for main demo
+      initHeroCards(document.getElementById('desktop-demo'));
+      initHeroCards(document.getElementById('mobile-demo'));
+    })();
+
+    // Column Switcher
+    function showColumns(num) {
+      const wrapper = document.getElementById('split-wrapper');
+      const col3 = document.getElementById('col3');
+      const col4 = document.getElementById('col4');
+
+      wrapper.className = 'hero-split-wrapper cols-' + num;
+
+      col3.style.display = num >= 3 ? 'flex' : 'none';
+      col4.style.display = num >= 4 ? 'flex' : 'none';
+
+      // Update buttons
+      document.querySelectorAll('.demo-btn:not(.theme-btn)').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.includes(num + ' Column')) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    // Device Switcher
+    function showMobileDemo() {
+      document.getElementById('desktop-demo').style.display = 'none';
+      document.getElementById('mobile-demo').classList.add('active');
+      updateDeviceButtons('mobile');
+    }
+
+    function showDesktopDemo() {
+      document.getElementById('desktop-demo').style.display = 'block';
+      document.getElementById('mobile-demo').classList.remove('active');
+      updateDeviceButtons('desktop');
+    }
+
+    function updateDeviceButtons(active) {
+      document.querySelectorAll('.demo-btn:not(.theme-btn)').forEach(btn => {
+        if (btn.textContent.includes('Mobile') || btn.textContent.includes('Desktop')) {
+          btn.classList.remove('active');
+          if ((active === 'mobile' && btn.textContent.includes('Mobile')) ||
+              (active === 'desktop' && btn.textContent.includes('Desktop'))) {
+            btn.classList.add('active');
+          }
+        }
+      });
+    }
+
+    // Theme Switcher
+    function setTheme(theme) {
+      document.querySelectorAll('.split-hero-section').forEach(section => {
+        section.className = section.className.replace(/theme-\w+/g, '');
+        section.classList.add('theme-' + theme);
+      });
+
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase() === theme) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
