@@ -1,18 +1,16 @@
 {% comment %}
   ╔══════════════════════════════════════════════════════════════╗
-  ║  PREMIUM SPLIT HERO SECTION v2.1                             ║
+  ║  PREMIUM SPLIT HERO SECTION v2.2                             ║
   ║  © 2024 - All Rights Reserved                                ║
   ║                                                              ║
   ║  Features:                                                   ║
   ║  - 2, 3, or 4 column layouts (Desktop)                       ║
+  ║  - Custom fonts & font sizes                                 ║
   ║  - Grayscale to color hover effect                           ║
   ║  - Mobile expandable cards with notification dots            ║
   ║  - Full Shopify Theme Editor customization                   ║
   ║  - Accessibility ready (ARIA, keyboard navigation)           ║
   ║  - Performance optimized (lazy loading, fetchpriority)       ║
-  ║                                                              ║
-  ║  Compatible with: Dawn, Debut, Prestige, Impulse, Turbo      ║
-  ║  and all Shopify OS 2.0 Themes                               ║
   ╚══════════════════════════════════════════════════════════════╝
 {% endcomment %}
 
@@ -49,6 +47,101 @@
     },
     {
       "type": "header",
+      "content": "🔤 Typography - Headings"
+    },
+    {
+      "type": "select",
+      "id": "font_heading",
+      "label": "Heading Font",
+      "options": [
+        { "value": "'Poppins', sans-serif", "label": "Poppins (Modern)" },
+        { "value": "'Playfair Display', serif", "label": "Playfair Display (Elegant)" },
+        { "value": "'Montserrat', sans-serif", "label": "Montserrat (Clean)" },
+        { "value": "'Oswald', sans-serif", "label": "Oswald (Bold)" },
+        { "value": "'Raleway', sans-serif", "label": "Raleway (Light)" },
+        { "value": "'Roboto Slab', serif", "label": "Roboto Slab (Professional)" },
+        { "value": "'Bebas Neue', sans-serif", "label": "Bebas Neue (Impact)" },
+        { "value": "'Cormorant Garamond', serif", "label": "Cormorant (Luxury)" },
+        { "value": "'DM Sans', sans-serif", "label": "DM Sans (Minimal)" },
+        { "value": "'Space Grotesk', sans-serif", "label": "Space Grotesk (Tech)" }
+      ],
+      "default": "'Poppins', sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "font_size_heading_desktop",
+      "label": "Heading Size Desktop",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "font_size_heading_mobile",
+      "label": "Heading Size Mobile",
+      "min": 18,
+      "max": 48,
+      "step": 2,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "font_weight_heading",
+      "label": "Heading Weight",
+      "options": [
+        { "value": "400", "label": "Normal (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semi-Bold (600)" },
+        { "value": "700", "label": "Bold (700)" },
+        { "value": "800", "label": "Extra-Bold (800)" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "header",
+      "content": "🔤 Typography - Body Text"
+    },
+    {
+      "type": "select",
+      "id": "font_body",
+      "label": "Body Font",
+      "options": [
+        { "value": "'Inter', sans-serif", "label": "Inter (Modern)" },
+        { "value": "'Open Sans', sans-serif", "label": "Open Sans (Classic)" },
+        { "value": "'Lato', sans-serif", "label": "Lato (Friendly)" },
+        { "value": "'Roboto', sans-serif", "label": "Roboto (Clean)" },
+        { "value": "'Source Sans Pro', sans-serif", "label": "Source Sans (Professional)" },
+        { "value": "'Nunito', sans-serif", "label": "Nunito (Rounded)" },
+        { "value": "'Work Sans', sans-serif", "label": "Work Sans (Minimal)" },
+        { "value": "'DM Sans', sans-serif", "label": "DM Sans (Simple)" }
+      ],
+      "default": "'Inter', sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "font_size_body_desktop",
+      "label": "Body Text Size Desktop",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "font_size_body_mobile",
+      "label": "Body Text Size Mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "header",
       "content": "Center Content"
     },
     {
@@ -61,6 +154,16 @@
       "id": "center_brand_text",
       "label": "Brand Text (if no logo)",
       "default": "YOUR BRAND"
+    },
+    {
+      "type": "range",
+      "id": "center_brand_size",
+      "label": "Brand Text Size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "default": 40,
+      "unit": "px"
     },
     {
       "type": "text",
@@ -137,6 +240,30 @@
       "id": "notification_dot_color",
       "label": "Notification Dot Color",
       "default": "#ef4444"
+    },
+    {
+      "type": "header",
+      "content": "Button Styling"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "label": "Button Text Size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button Border Radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "default": 50,
+      "unit": "px"
     }
   ],
   "blocks": [
@@ -214,15 +341,24 @@
 {% endschema %}
 
 {% style %}
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+  /* Google Fonts Import - All Available Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700;800&family=Nunito:wght@400;600;700&family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Source+Sans+Pro:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap');
 
   #shopify-section-{{ section.id }} {
     --hero-accent: {{ section.settings.accent_color }};
     --hero-bg: {{ section.settings.background_color }};
     --hero-text: {{ section.settings.text_color }};
     --hero-dot: {{ section.settings.notification_dot_color }};
-    --hero-font-heading: 'Poppins', sans-serif;
-    --hero-font-body: 'Inter', sans-serif;
+    --hero-font-heading: {{ section.settings.font_heading }};
+    --hero-font-body: {{ section.settings.font_body }};
+    --hero-font-weight-heading: {{ section.settings.font_weight_heading }};
+    --hero-font-size-heading-desktop: {{ section.settings.font_size_heading_desktop }}px;
+    --hero-font-size-heading-mobile: {{ section.settings.font_size_heading_mobile }}px;
+    --hero-font-size-body-desktop: {{ section.settings.font_size_body_desktop }}px;
+    --hero-font-size-body-mobile: {{ section.settings.font_size_body_mobile }}px;
+    --hero-center-brand-size: {{ section.settings.center_brand_size }}px;
+    --hero-button-size: {{ section.settings.button_size }}px;
+    --hero-button-radius: {{ section.settings.button_radius }}px;
     --hero-height: {{ section.settings.section_height }}vh;
     --hero-card-collapsed: {{ section.settings.card_collapsed_height }}px;
     --hero-card-expanded: {{ section.settings.card_expanded_height }}px;
@@ -347,8 +483,8 @@
 
   .hero-column-title {
     font-family: var(--hero-font-heading);
-    font-weight: 700;
-    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    font-weight: var(--hero-font-weight-heading);
+    font-size: var(--hero-font-size-heading-desktop);
     margin: 0 0 12px 0;
     color: var(--hero-text);
   }
@@ -356,7 +492,7 @@
   .hero-column-subtitle {
     font-family: var(--hero-font-body);
     font-weight: 500;
-    font-size: clamp(0.9rem, 1.5vw, 1.25rem);
+    font-size: var(--hero-font-size-body-desktop);
     max-width: 90%;
     margin: 0 auto;
     color: rgba(255, 255, 255, 0.9);
@@ -386,8 +522,8 @@
 
   .hero-center-text {
     font-family: var(--hero-font-heading);
-    font-weight: 700;
-    font-size: 2.5rem;
+    font-weight: var(--hero-font-weight-heading);
+    font-size: var(--hero-center-brand-size);
     color: var(--hero-accent);
     margin-bottom: 20px;
     letter-spacing: 3px;
@@ -396,7 +532,7 @@
   .hero-center-heading {
     font-family: var(--hero-font-heading);
     font-weight: 600;
-    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    font-size: var(--hero-font-size-heading-desktop);
     color: var(--hero-text);
     margin: 0;
     text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.6);
@@ -431,7 +567,7 @@
   .hero-mobile-welcome {
     font-family: var(--hero-font-body);
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: var(--hero-font-size-body-mobile);
     color: var(--hero-accent);
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -440,8 +576,8 @@
 
   .hero-mobile-title {
     font-family: var(--hero-font-heading);
-    font-weight: 700;
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    font-weight: var(--hero-font-weight-heading);
+    font-size: var(--hero-font-size-heading-mobile);
     color: var(--hero-text);
     margin: 0;
   }
@@ -520,8 +656,8 @@
 
   .hero-card-title {
     font-family: var(--hero-font-heading);
-    font-weight: 700;
-    font-size: 1.5rem;
+    font-weight: var(--hero-font-weight-heading);
+    font-size: calc(var(--hero-font-size-heading-mobile) * 0.9);
     color: var(--hero-text);
     margin: 0 0 8px 0;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
@@ -529,7 +665,7 @@
 
   .hero-card-subtitle {
     font-family: var(--hero-font-body);
-    font-size: 0.95rem;
+    font-size: var(--hero-font-size-body-mobile);
     line-height: 1.4;
     color: rgba(255, 255, 255, 0.9);
     margin: 0 0 15px 0;
@@ -542,9 +678,9 @@
     color: var(--hero-text);
     font-family: var(--hero-font-heading);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: var(--hero-button-size);
     padding: 12px 28px;
-    border-radius: 50px;
+    border-radius: var(--hero-button-radius);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     text-decoration: none;

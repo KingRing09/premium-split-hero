@@ -3,9 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium Split Hero Section - Shopify Section | Live Demo</title>
+  
+  <!-- SEO Meta Tags -->
+  <title>Premium Split Hero Section for Shopify | 2/3/4 Columns | Live Demo</title>
+  <meta name="description" content="Premium Shopify hero section with stunning animations, mobile-first design, customizable fonts & colors. 2, 3, or 4 column layouts. No coding required. €199 one-time.">
+  <meta name="keywords" content="Shopify section, hero section, split hero, Shopify theme, e-commerce, premium section, mobile responsive, Shopify OS 2.0">
+  <meta name="author" content="Premium Shopify Sections">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Premium Split Hero Section for Shopify">
+  <meta property="og:description" content="Stunning hero section with animations, 2-4 column layouts, fully customizable. No coding required.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=630&fit=crop">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Premium Split Hero Section for Shopify">
+  <meta name="twitter:description" content="Stunning hero section with animations, 2-4 column layouts, fully customizable.">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="">
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Structured Data / Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Premium Split Hero Section for Shopify",
+    "description": "A stunning, conversion-optimized hero section with smooth animations, mobile-first design, and complete Shopify Theme Editor integration.",
+    "offers": {
+      "@type": "Offer",
+      "price": "199",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+  
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
@@ -24,7 +63,7 @@
     }
 
     /* ============================================
-       LANDING PAGE STYLES
+       HEADER & NAVIGATION
        ============================================ */
     .landing-header {
       position: fixed;
@@ -51,6 +90,7 @@
     .landing-nav {
       display: flex;
       gap: 30px;
+      align-items: center;
     }
 
     .landing-nav a {
@@ -61,6 +101,36 @@
     }
 
     .landing-nav a:hover {
+      color: #fff;
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      display: flex;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #888;
+      padding: 6px 12px;
+      border-radius: 18px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .lang-btn.active {
+      background: var(--hero-accent);
+      color: #fff;
+    }
+
+    .lang-btn:hover:not(.active) {
       color: #fff;
     }
 
@@ -80,7 +150,9 @@
       box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
     }
 
-    /* Hero Landing */
+    /* ============================================
+       LANDING HERO
+       ============================================ */
     .landing-hero {
       min-height: 100vh;
       display: flex;
@@ -169,7 +241,9 @@
       border-color: rgba(255,255,255,0.3);
     }
 
-    /* Features Grid */
+    /* ============================================
+       FEATURES SECTION
+       ============================================ */
     .features-section {
       padding: 100px 40px;
       background: #0a0a0b;
@@ -222,7 +296,9 @@
       line-height: 1.6;
     }
 
-    /* Demo Section */
+    /* ============================================
+       DEMO SECTION
+       ============================================ */
     .demo-section {
       padding: 100px 20px;
       background: linear-gradient(180deg, #0a0a0b 0%, #111 100%);
@@ -232,7 +308,7 @@
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
     }
 
@@ -257,6 +333,7 @@
       background: rgba(255,255,255,0.15);
     }
 
+    /* Desktop Demo Container */
     .demo-container {
       max-width: 1400px;
       margin: 0 auto;
@@ -266,7 +343,11 @@
       border: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* Mobile Frame */
+    .demo-container.hidden {
+      display: none;
+    }
+
+    /* Mobile Frame for Mobile Preview */
     .mobile-frame {
       display: none;
       width: 375px;
@@ -284,6 +365,7 @@
 
     .mobile-frame .split-hero-section {
       height: 100%;
+      overflow-y: auto;
     }
 
     .mobile-frame .hero-desktop-container {
@@ -294,10 +376,37 @@
       display: flex !important;
     }
 
-    /* ============================================
-       PREMIUM SPLIT HERO SECTION - THE PRODUCT
-       ============================================ */
+    /* Desktop Preview Frame (scaled for phone viewing) */
+    .desktop-preview-frame {
+      display: none;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
 
+    .desktop-preview-frame.active {
+      display: block;
+    }
+
+    .desktop-preview-frame .split-hero-section {
+      height: 600px;
+    }
+
+    .desktop-preview-frame .hero-mobile-container {
+      display: none !important;
+    }
+
+    .desktop-preview-frame .hero-desktop-container {
+      display: flex !important;
+    }
+
+    /* ============================================
+       SPLIT HERO SECTION - THE PRODUCT
+       ============================================ */
     .split-hero-section {
       position: relative;
       z-index: 1;
@@ -324,7 +433,7 @@
       border-width: 0;
     }
 
-    /* --- DESKTOP --- */
+    /* Desktop View */
     .hero-desktop-container {
       width: 100%;
       height: 100%;
@@ -343,7 +452,6 @@
       display: flex;
     }
 
-    /* Column variations */
     .hero-split-wrapper.cols-2 .hero-column { width: 50%; }
     .hero-split-wrapper.cols-3 .hero-column { width: 33.333%; }
     .hero-split-wrapper.cols-4 .hero-column { width: 25%; }
@@ -433,7 +541,7 @@
       color: rgba(255, 255, 255, 0.9);
     }
 
-    /* Center Content Desktop */
+    /* Center Content */
     .hero-center-content {
       position: absolute;
       z-index: 4;
@@ -477,7 +585,7 @@
       opacity: 0;
     }
 
-    /* --- MOBILE --- */
+    /* Mobile View */
     .hero-mobile-container {
       display: none;
       width: 100%;
@@ -696,21 +804,7 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 768px) {
-      .split-hero-section {
-        height: auto;
-        min-height: 100vh;
-        display: block;
-      }
-      .hero-desktop-container {
-        display: none;
-      }
-      .hero-mobile-container {
-        display: flex;
-      }
-    }
-
-    /* Color Themes Preview */
+    /* Color Themes */
     .theme-indigo { --hero-accent: #6366F1; }
     .theme-emerald { --hero-accent: #10B981; }
     .theme-rose { --hero-accent: #F43F5E; }
@@ -718,90 +812,8 @@
     .theme-cyan { --hero-accent: #06B6D4; }
 
     /* ============================================
-       DOCUMENTATION SECTION
+       PRICING SECTION
        ============================================ */
-    .docs-section {
-      padding: 100px 40px;
-      background: #0a0a0b;
-    }
-
-    .docs-container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .docs-block {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 40px;
-      margin-bottom: 30px;
-    }
-
-    .docs-block h3 {
-      font-family: var(--hero-font-heading);
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      color: var(--hero-accent);
-    }
-
-    .docs-block h4 {
-      font-size: 1.1rem;
-      margin: 25px 0 15px;
-      color: #fff;
-    }
-
-    .docs-block p, .docs-block li {
-      color: #aaa;
-      line-height: 1.8;
-    }
-
-    .docs-block ul {
-      padding-left: 25px;
-    }
-
-    .docs-block li {
-      margin-bottom: 8px;
-    }
-
-    .docs-code {
-      background: #1a1a1a;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 15px 0;
-      overflow-x: auto;
-      font-family: 'Monaco', 'Consolas', monospace;
-      font-size: 0.9rem;
-      color: #10B981;
-      border: 1px solid #333;
-    }
-
-    .docs-step {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 25px;
-      align-items: flex-start;
-    }
-
-    .docs-step-num {
-      background: var(--hero-accent);
-      color: #fff;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .docs-step-content h4 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    /* Pricing Section */
     .pricing-section {
       padding: 100px 40px;
       background: linear-gradient(180deg, #111 0%, #0a0a0b 100%);
@@ -849,6 +861,7 @@
     .pricing-features {
       text-align: left;
       margin-bottom: 35px;
+      list-style: none;
     }
 
     .pricing-features li {
@@ -881,98 +894,178 @@
     /* Responsive */
     @media (max-width: 768px) {
       .landing-header {
-        padding: 15px 20px;
+        padding: 12px 15px;
+        flex-wrap: wrap;
+        gap: 10px;
       }
       .landing-nav {
         display: none;
       }
+      .landing-logo {
+        font-size: 1rem;
+      }
       .features-section,
-      .docs-section,
       .pricing-section {
         padding: 60px 20px;
       }
-      .docs-block {
-        padding: 25px;
+      .section-title {
+        font-size: 1.8rem;
       }
+      .demo-section {
+        padding: 60px 10px;
+      }
+      .demo-controls {
+        gap: 5px;
+      }
+      .demo-btn {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Hidden class for language switching */
+    [data-lang] {
+      display: none;
+    }
+    [data-lang].show {
+      display: inline;
+    }
+    .feature-card [data-lang].show,
+    .pricing-features [data-lang].show,
+    p[data-lang].show,
+    h1[data-lang].show,
+    h2[data-lang].show,
+    h3[data-lang].show,
+    span[data-lang].show,
+    div[data-lang].show,
+    li[data-lang].show {
+      display: block;
+    }
+    .landing-badge[data-lang].show,
+    .pricing-badge[data-lang].show,
+    a[data-lang].show,
+    button[data-lang].show {
+      display: inline-block;
+    }
+    .pricing-features li[data-lang].show {
+      display: flex;
     }
   </style>
 </head>
 <body>
 
-  <!-- Landing Header -->
+  <!-- Header -->
   <header class="landing-header">
     <div class="landing-logo">SPLIT HERO PRO</div>
     <nav class="landing-nav">
-      <a href="#features">Features</a>
-      <a href="#demo">Live Demo</a>
-      <a href="#docs">Documentation</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#features" data-lang="en" class="show">Features</a>
+      <a href="#features" data-lang="de">Funktionen</a>
+      <a href="#demo" data-lang="en" class="show">Live Demo</a>
+      <a href="#demo" data-lang="de">Live Demo</a>
+      <a href="#pricing" data-lang="en" class="show">Pricing</a>
+      <a href="#pricing" data-lang="de">Preise</a>
     </nav>
-    <a href="#pricing" class="landing-cta">Get It Now</a>
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('de')">DE</button>
+      </div>
+      <a href="#pricing" class="landing-cta" data-lang="en" class="show">Get It Now</a>
+      <a href="#pricing" class="landing-cta" data-lang="de">Jetzt Kaufen</a>
+    </div>
   </header>
 
   <!-- Landing Hero -->
   <section class="landing-hero">
     <div class="landing-hero-content">
-      <div class="landing-badge">⚡ Premium Shopify Section</div>
-      <h1 class="landing-title">Premium Split Hero Section</h1>
-      <p class="landing-subtitle">A stunning, conversion-optimized hero section with smooth animations, mobile-first design, and complete Shopify Theme Editor integration. No coding required.</p>
+      <div class="landing-badge" data-lang="en" class="show">⚡ Premium Shopify Section</div>
+      <div class="landing-badge" data-lang="de">⚡ Premium Shopify Sektion</div>
+      
+      <h1 class="landing-title" data-lang="en" class="show">Premium Split Hero Section</h1>
+      <h1 class="landing-title" data-lang="de">Premium Split Hero Sektion</h1>
+      
+      <p class="landing-subtitle" data-lang="en" class="show">A stunning, conversion-optimized hero section with smooth animations, mobile-first design, and complete Shopify Theme Editor integration. No coding required.</p>
+      <p class="landing-subtitle" data-lang="de">Eine beeindruckende, conversion-optimierte Hero-Sektion mit sanften Animationen, Mobile-First Design und vollständiger Shopify Theme Editor Integration. Keine Programmierung erforderlich.</p>
+      
       <div class="landing-buttons">
-        <a href="#demo" class="btn-primary">View Live Demo</a>
-        <a href="#docs" class="btn-secondary">Read Documentation</a>
+        <a href="#demo" class="btn-primary" data-lang="en" class="show">View Live Demo</a>
+        <a href="#demo" class="btn-primary" data-lang="de">Live Demo ansehen</a>
+        <a href="#pricing" class="btn-secondary" data-lang="en" class="show">Get It Now - €199</a>
+        <a href="#pricing" class="btn-secondary" data-lang="de">Jetzt kaufen - 199€</a>
       </div>
     </div>
   </section>
 
   <!-- Features -->
   <section class="features-section" id="features">
-    <h2 class="section-title">Why Choose This Section?</h2>
+    <h2 class="section-title" data-lang="en" class="show">Why Choose This Section?</h2>
+    <h2 class="section-title" data-lang="de">Warum diese Sektion wählen?</h2>
+    
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">🎨</div>
-        <h3 class="feature-title">2, 3 & 4 Column Layouts</h3>
-        <p class="feature-desc">Choose between 2, 3, or 4 column layouts directly from the Theme Editor. Perfect for any collection or category setup.</p>
+        <h3 class="feature-title" data-lang="en" class="show">2, 3 & 4 Column Layouts</h3>
+        <h3 class="feature-title" data-lang="de">2, 3 & 4 Spalten-Layouts</h3>
+        <p class="feature-desc" data-lang="en" class="show">Choose between 2, 3, or 4 column layouts directly from the Theme Editor. Perfect for any collection setup.</p>
+        <p class="feature-desc" data-lang="de">Wähle zwischen 2, 3 oder 4 Spalten direkt im Theme Editor. Perfekt für jede Kollektion.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📱</div>
-        <h3 class="feature-title">Mobile-First Design</h3>
-        <p class="feature-desc">Unique expandable card system on mobile with attention-grabbing notification dots. Optimized for touch interactions.</p>
+        <h3 class="feature-title" data-lang="en" class="show">Mobile-First Design</h3>
+        <h3 class="feature-title" data-lang="de">Mobile-First Design</h3>
+        <p class="feature-desc" data-lang="en" class="show">Unique expandable card system on mobile with attention-grabbing notification dots. Optimized for touch.</p>
+        <p class="feature-desc" data-lang="de">Einzigartiges aufklappbares Kartensystem auf Mobile mit aufmerksamkeitsstarken Notification-Punkten.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔤</div>
+        <h3 class="feature-title" data-lang="en" class="show">Custom Fonts & Sizes</h3>
+        <h3 class="feature-title" data-lang="de">Eigene Schriften & Größen</h3>
+        <p class="feature-desc" data-lang="en" class="show">10+ premium Google Fonts included. Adjust heading and body text sizes separately for desktop and mobile.</p>
+        <p class="feature-desc" data-lang="de">10+ Premium Google Fonts inklusive. Passe Überschriften und Texte separat für Desktop und Mobile an.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">✨</div>
-        <h3 class="feature-title">Premium Animations</h3>
-        <p class="feature-desc">Smooth grayscale-to-color transitions, elegant hover effects, and buttery 60fps animations throughout.</p>
+        <h3 class="feature-title" data-lang="en" class="show">Premium Animations</h3>
+        <h3 class="feature-title" data-lang="de">Premium Animationen</h3>
+        <p class="feature-desc" data-lang="en" class="show">Smooth grayscale-to-color transitions, elegant hover effects, and buttery 60fps animations.</p>
+        <p class="feature-desc" data-lang="de">Sanfte Graustufen-zu-Farbe Übergänge, elegante Hover-Effekte und butterweiche 60fps Animationen.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🎯</div>
-        <h3 class="feature-title">Full Customization</h3>
-        <p class="feature-desc">Colors, fonts, images, text - everything is customizable from the Shopify Theme Editor. Zero coding needed.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">♿</div>
-        <h3 class="feature-title">Accessibility Ready</h3>
-        <p class="feature-desc">Built with ARIA labels, keyboard navigation, screen reader support, and focus states. WCAG compliant.</p>
+        <h3 class="feature-title" data-lang="en" class="show">Full Customization</h3>
+        <h3 class="feature-title" data-lang="de">Volle Anpassbarkeit</h3>
+        <p class="feature-desc" data-lang="en" class="show">Colors, fonts, images, text - everything is customizable from the Theme Editor. Zero coding needed.</p>
+        <p class="feature-desc" data-lang="de">Farben, Schriften, Bilder, Texte - alles anpassbar im Theme Editor. Keine Programmierung nötig.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">⚡</div>
-        <h3 class="feature-title">Performance Optimized</h3>
-        <p class="feature-desc">Lazy loading, optimized images, minimal JavaScript. Scores 90+ on PageSpeed Insights.</p>
+        <h3 class="feature-title" data-lang="en" class="show">Performance Optimized</h3>
+        <h3 class="feature-title" data-lang="de">Performance Optimiert</h3>
+        <p class="feature-desc" data-lang="en" class="show">Lazy loading, optimized images, minimal JavaScript. Scores 90+ on PageSpeed Insights.</p>
+        <p class="feature-desc" data-lang="de">Lazy Loading, optimierte Bilder, minimales JavaScript. 90+ Score auf PageSpeed Insights.</p>
       </div>
     </div>
   </section>
 
   <!-- Demo Section -->
   <section class="demo-section" id="demo">
-    <h2 class="section-title">Live Demo</h2>
+    <h2 class="section-title" data-lang="en" class="show">Live Demo</h2>
+    <h2 class="section-title" data-lang="de">Live Demo</h2>
     
+    <!-- View Mode Toggle -->
     <div class="demo-controls">
+      <button class="demo-btn active" id="btn-desktop" onclick="showDesktopDemo()">💻 Desktop</button>
+      <button class="demo-btn" id="btn-mobile" onclick="showMobileDemo()">📱 Mobile</button>
+    </div>
+    
+    <!-- Column Toggle (for Desktop) -->
+    <div class="demo-controls" id="column-controls">
       <button class="demo-btn active" onclick="showColumns(2)">2 Columns</button>
       <button class="demo-btn" onclick="showColumns(3)">3 Columns</button>
       <button class="demo-btn" onclick="showColumns(4)">4 Columns</button>
-      <button class="demo-btn" onclick="showMobileDemo()">📱 Mobile</button>
-      <button class="demo-btn" onclick="showDesktopDemo()">💻 Desktop</button>
     </div>
 
+    <!-- Theme Toggle -->
     <div class="demo-controls">
       <button class="demo-btn theme-btn active" onclick="setTheme('indigo')">Indigo</button>
       <button class="demo-btn theme-btn" onclick="setTheme('emerald')">Emerald</button>
@@ -981,112 +1074,58 @@
       <button class="demo-btn theme-btn" onclick="setTheme('cyan')">Cyan</button>
     </div>
 
-    <!-- Desktop Demo -->
-    <div class="demo-container" id="desktop-demo">
+    <!-- Desktop Demo (Full Width) -->
+    <div class="desktop-preview-frame active" id="desktop-demo">
       <section class="split-hero-section theme-indigo" id="hero-section">
         <h1 class="hero-sr-only">Discover Our Premium Collections</h1>
-
         <div class="hero-desktop-container">
           <div class="hero-split-wrapper cols-2" id="split-wrapper">
-            
             <article class="hero-column">
               <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1200&h=1600&fit=crop" 
-                   alt="Woman in elegant fashion" 
-                   class="hero-column-img">
-              <a href="#" class="hero-column-link" aria-label="Women's Collection">
-                <span class="hero-sr-only">Explore</span>
-              </a>
-              <div class="hero-column-content" aria-hidden="true">
+                   alt="Woman in elegant fashion" class="hero-column-img">
+              <a href="#" class="hero-column-link" aria-label="Women's Collection"></a>
+              <div class="hero-column-content">
                 <h2 class="hero-column-title">Women</h2>
                 <p class="hero-column-subtitle">Elegant styles for the modern woman</p>
               </div>
             </article>
-
             <article class="hero-column">
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=1600&fit=crop" 
-                   alt="Man in casual style" 
-                   class="hero-column-img">
-              <a href="#" class="hero-column-link" aria-label="Men's Collection">
-                <span class="hero-sr-only">Explore</span>
-              </a>
-              <div class="hero-column-content" aria-hidden="true">
+                   alt="Man in casual style" class="hero-column-img">
+              <a href="#" class="hero-column-link" aria-label="Men's Collection"></a>
+              <div class="hero-column-content">
                 <h2 class="hero-column-title">Men</h2>
                 <p class="hero-column-subtitle">Contemporary fashion for him</p>
               </div>
             </article>
-
             <article class="hero-column" id="col3" style="display: none;">
               <img src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=1200&h=1600&fit=crop" 
-                   alt="Kids fashion" 
-                   class="hero-column-img">
-              <a href="#" class="hero-column-link" aria-label="Kids Collection">
-                <span class="hero-sr-only">Explore</span>
-              </a>
-              <div class="hero-column-content" aria-hidden="true">
+                   alt="Kids fashion" class="hero-column-img">
+              <a href="#" class="hero-column-link" aria-label="Kids Collection"></a>
+              <div class="hero-column-content">
                 <h2 class="hero-column-title">Kids</h2>
                 <p class="hero-column-subtitle">Fun and colorful styles</p>
               </div>
             </article>
-
             <article class="hero-column" id="col4" style="display: none;">
               <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=1600&fit=crop" 
-                   alt="Accessories collection" 
-                   class="hero-column-img">
-              <a href="#" class="hero-column-link" aria-label="Accessories">
-                <span class="hero-sr-only">Explore</span>
-              </a>
-              <div class="hero-column-content" aria-hidden="true">
+                   alt="Accessories" class="hero-column-img">
+              <a href="#" class="hero-column-link" aria-label="Accessories"></a>
+              <div class="hero-column-content">
                 <h2 class="hero-column-title">Accessories</h2>
                 <p class="hero-column-subtitle">Complete your look</p>
               </div>
             </article>
-
           </div>
-
-          <div class="hero-center-content" aria-hidden="true">
+          <div class="hero-center-content">
             <div class="hero-center-text">YOUR BRAND</div>
             <h2 class="hero-center-heading">Choose Your Style</h2>
-          </div>
-        </div>
-
-        <div class="hero-mobile-container">
-          <header class="hero-mobile-header">
-            <p class="hero-mobile-welcome">Welcome to Our Store</p>
-            <h2 class="hero-mobile-title">Choose Your Style</h2>
-          </header>
-
-          <div class="hero-cards-container">
-            <article class="hero-card-wrapper">
-              <div class="hero-card" role="button" tabindex="0" aria-expanded="false">
-                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&h=1000&fit=crop" 
-                     alt="Women's Collection" class="hero-card-img">
-                <div class="hero-notification-dot"></div>
-                <div class="hero-card-content">
-                  <h3 class="hero-card-title">Women</h3>
-                  <p class="hero-card-subtitle">Elegant styles for the modern woman</p>
-                  <a href="#" class="hero-card-btn">Shop Women</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="hero-card-wrapper">
-              <div class="hero-card" role="button" tabindex="0" aria-expanded="false">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop" 
-                     alt="Men's Collection" class="hero-card-img">
-                <div class="hero-notification-dot"></div>
-                <div class="hero-card-content">
-                  <h3 class="hero-card-title">Men</h3>
-                  <p class="hero-card-subtitle">Contemporary fashion for him</p>
-                  <a href="#" class="hero-card-btn">Shop Men</a>
-                </div>
-              </div>
-            </article>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- Mobile Frame Demo -->
+    <!-- Mobile Demo (Phone Frame) -->
     <div class="mobile-frame" id="mobile-demo">
       <section class="split-hero-section theme-indigo">
         <div class="hero-mobile-container" style="display: flex;">
@@ -1094,10 +1133,9 @@
             <p class="hero-mobile-welcome">Welcome to Our Store</p>
             <h2 class="hero-mobile-title">Choose Your Style</h2>
           </header>
-
           <div class="hero-cards-container" id="mobile-cards">
             <article class="hero-card-wrapper">
-              <div class="hero-card" role="button" tabindex="0" aria-expanded="false">
+              <div class="hero-card" role="button" tabindex="0">
                 <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&h=1000&fit=crop" 
                      alt="Women's Collection" class="hero-card-img">
                 <div class="hero-notification-dot"></div>
@@ -1108,9 +1146,8 @@
                 </div>
               </div>
             </article>
-
             <article class="hero-card-wrapper">
-              <div class="hero-card" role="button" tabindex="0" aria-expanded="false">
+              <div class="hero-card" role="button" tabindex="0">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop" 
                      alt="Men's Collection" class="hero-card-img">
                 <div class="hero-notification-dot"></div>
@@ -1127,216 +1164,41 @@
     </div>
   </section>
 
-  <!-- Documentation -->
-  <section class="docs-section" id="docs">
-    <h2 class="section-title">Documentation</h2>
-    
-    <div class="docs-container">
-      
-      <div class="docs-block">
-        <h3>📦 Installation Guide</h3>
-        
-        <div class="docs-step">
-          <div class="docs-step-num">1</div>
-          <div class="docs-step-content">
-            <h4>Access Theme Files</h4>
-            <p>Go to your Shopify Admin → Online Store → Themes → Actions → Edit Code</p>
-          </div>
-        </div>
-
-        <div class="docs-step">
-          <div class="docs-step-num">2</div>
-          <div class="docs-step-content">
-            <h4>Create New Section</h4>
-            <p>In the Sections folder, click "Add a new section" → Name it <strong>premium-split-hero</strong> → Delete all default code</p>
-          </div>
-        </div>
-
-        <div class="docs-step">
-          <div class="docs-step-num">3</div>
-          <div class="docs-step-content">
-            <h4>Paste Code</h4>
-            <p>Copy the entire content from the provided <strong>premium-split-hero.liquid</strong> file and paste it into your new section</p>
-          </div>
-        </div>
-
-        <div class="docs-step">
-          <div class="docs-step-num">4</div>
-          <div class="docs-step-content">
-            <h4>Add to Page</h4>
-            <p>Go to Customize → Add Section → Find "Premium Split Hero" → Configure settings</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="docs-block">
-        <h3>⚙️ Configuration Options</h3>
-        
-        <h4>Layout Settings</h4>
-        <ul>
-          <li><strong>Number of Columns:</strong> Choose 2, 3, or 4 columns for desktop view</li>
-          <li><strong>Mobile Card Height:</strong> Collapsed and expanded heights (default: 200px / 380px)</li>
-        </ul>
-
-        <h4>Images</h4>
-        <ul>
-          <li><strong>Desktop Images:</strong> Recommended size 1200x1600px (portrait orientation)</li>
-          <li><strong>Mobile Images:</strong> Recommended size 800x1000px</li>
-          <li><strong>Formats:</strong> JPG, PNG, or WebP supported</li>
-        </ul>
-
-        <h4>Colors & Styling</h4>
-        <ul>
-          <li><strong>Accent Color:</strong> Used for buttons, highlights, and glow effects</li>
-          <li><strong>Background Color:</strong> Section background (default: #0a0a0b)</li>
-          <li><strong>Text Color:</strong> All text elements (default: #FFFFFF)</li>
-        </ul>
-
-        <h4>Content</h4>
-        <ul>
-          <li><strong>Center Logo:</strong> Optional logo image for desktop center</li>
-          <li><strong>Headings:</strong> Main H1 (SEO), center text, mobile welcome text</li>
-          <li><strong>Per Column:</strong> Title, subtitle, link, button text, alt text</li>
-        </ul>
-      </div>
-
-      <div class="docs-block">
-        <h3>🎨 Theme Compatibility</h3>
-        <p>This section is tested and compatible with:</p>
-        <ul>
-          <li>✅ Dawn (Free Shopify Theme)</li>
-          <li>✅ Debut</li>
-          <li>✅ Prestige</li>
-          <li>✅ Impulse</li>
-          <li>✅ Turbo</li>
-          <li>✅ Most OS 2.0 Themes</li>
-        </ul>
-        <p style="margin-top: 15px; color: #888;">If you encounter any issues with your specific theme, contact support with your theme name and we'll help you integrate it.</p>
-      </div>
-
-      <div class="docs-block">
-        <h3>🚀 Performance Tips</h3>
-        <ul>
-          <li><strong>Image Optimization:</strong> Use compressed images (TinyPNG, Squoosh) before uploading</li>
-          <li><strong>Image Format:</strong> WebP provides best quality-to-size ratio</li>
-          <li><strong>Lazy Loading:</strong> Mobile images use native lazy loading by default</li>
-          <li><strong>Desktop Priority:</strong> Desktop images use fetchpriority="high" for faster LCP</li>
-        </ul>
-      </div>
-
-      <div class="docs-block">
-        <h3>❓ Troubleshooting</h3>
-        
-        <h4>Images not showing?</h4>
-        <p>Make sure you've uploaded images in the Theme Editor. Placeholder images show when no image is selected.</p>
-
-        <h4>Animations not working?</h4>
-        <p>Check if you have any CSS that might conflict with the section. The section uses the prefix <code>hero-</code> for all classes to avoid conflicts.</p>
-
-        <h4>Mobile layout issues?</h4>
-        <p>The section uses <code>768px</code> as the breakpoint. If your theme uses different breakpoints, you can adjust this in the CSS.</p>
-
-        <h4>Center content not fading?</h4>
-        <p>The center content fades when hovering over split columns. This is intentional desktop behavior.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- What You Can Customize in Shopify -->
-  <section class="features-section" id="shopify-editor">
-    <h2 class="section-title">🎛️ Full Shopify Theme Editor Control</h2>
-    <p style="text-align: center; color: #888; max-width: 700px; margin: -40px auto 50px; font-size: 1.1rem;">Your customers can customize EVERYTHING without touching code</p>
-    
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🖼️</div>
-        <h3 class="feature-title">Upload Images</h3>
-        <p class="feature-desc">Separate desktop & mobile images per column. Just click and upload - Shopify handles optimization automatically.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🎨</div>
-        <h3 class="feature-title">Color Picker</h3>
-        <p class="feature-desc">Accent color, background, text, notification dot - all with native Shopify color pickers. No hex codes needed.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📝</div>
-        <h3 class="feature-title">Edit All Text</h3>
-        <p class="feature-desc">Headlines, subtitles, button text, SEO H1 - every text field is editable. Supports any language.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔗</div>
-        <h3 class="feature-title">Link to Collections</h3>
-        <p class="feature-desc">Native Shopify URL picker. Link to collections, products, pages or external URLs with one click.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📐</div>
-        <h3 class="feature-title">Adjust Heights</h3>
-        <p class="feature-desc">Section height, card collapsed/expanded height - all adjustable with sliders. Perfect for any design.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">➕</div>
-        <h3 class="feature-title">Add/Remove Columns</h3>
-        <p class="feature-desc">Dynamic blocks - add up to 4 columns. Each column has its own images, text, and link settings.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- Pricing -->
   <section class="pricing-section" id="pricing">
-    <h2 class="section-title">Get It Now</h2>
+    <h2 class="section-title" data-lang="en" class="show">Get It Now</h2>
+    <h2 class="section-title" data-lang="de">Jetzt Kaufen</h2>
     
     <div class="pricing-card">
-      <div class="pricing-badge">UNLIMITED LICENSE</div>
+      <div class="pricing-badge" data-lang="en" class="show">UNLIMITED LICENSE</div>
+      <div class="pricing-badge" data-lang="de">UNBEGRENZTE LIZENZ</div>
+      
       <div class="pricing-amount">€199 <span>one-time</span></div>
-      <p class="pricing-desc">Use on unlimited client stores, forever</p>
+      
+      <p class="pricing-desc" data-lang="en" class="show">Use on unlimited stores, forever</p>
+      <p class="pricing-desc" data-lang="de">Nutze es auf unbegrenzt vielen Shops, für immer</p>
       
       <ul class="pricing-features">
-        <li>Complete Liquid Section Code (.liquid file)</li>
-        <li>2, 3 & 4 Column Layouts</li>
-        <li>Desktop + Mobile Optimized</li>
-        <li>Full Theme Editor Integration (no coding!)</li>
-        <li>Works with Dawn, Prestige, Impulse & more</li>
-        <li>Step-by-Step PDF Documentation</li>
-        <li>30 Days Priority Email Support</li>
-        <li>Lifetime Updates</li>
-        <li>Commercial Use Allowed</li>
+        <li data-lang="en" class="show">Complete Liquid Section Code</li>
+        <li data-lang="de">Kompletter Liquid Section Code</li>
+        <li data-lang="en" class="show">2, 3 & 4 Column Layouts</li>
+        <li data-lang="de">2, 3 & 4 Spalten-Layouts</li>
+        <li data-lang="en" class="show">10+ Custom Fonts Included</li>
+        <li data-lang="de">10+ Benutzerdefinierte Schriften</li>
+        <li data-lang="en" class="show">Desktop + Mobile Optimized</li>
+        <li data-lang="de">Desktop + Mobile Optimiert</li>
+        <li data-lang="en" class="show">Full Theme Editor Integration</li>
+        <li data-lang="de">Volle Theme Editor Integration</li>
+        <li data-lang="en" class="show">PDF Documentation Included</li>
+        <li data-lang="de">PDF Dokumentation inklusive</li>
+        <li data-lang="en" class="show">30 Days Email Support</li>
+        <li data-lang="de">30 Tage E-Mail Support</li>
+        <li data-lang="en" class="show">Lifetime Updates</li>
+        <li data-lang="de">Lebenslange Updates</li>
       </ul>
 
-      <a href="#" class="btn-primary" style="width: 100%; display: block; text-align: center;">Purchase Now</a>
-      
-      <p style="margin-top: 20px; font-size: 0.85rem; color: #666;">Instant delivery via email • Secure payment</p>
-    </div>
-  </section>
-  
-  <!-- FAQ Section -->
-  <section class="docs-section" id="faq">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="docs-container">
-      <div class="docs-block">
-        <h3>❓ What exactly do I get?</h3>
-        <p style="color: #ccc;">You receive a single <code>.liquid</code> file that you paste into your Shopify theme. That's it! No apps, no subscriptions, no dependencies. The section then appears in your Theme Editor where you can customize everything visually.</p>
-      </div>
-      
-      <div class="docs-block">
-        <h3>❓ Will this work with my theme?</h3>
-        <p style="color: #ccc;">Yes! This section is compatible with all Shopify OS 2.0 themes including Dawn (free), Prestige, Impulse, Turbo, and hundreds more. If you have issues with a specific theme, I'll help you fix it within 24 hours.</p>
-      </div>
-      
-      <div class="docs-block">
-        <h3>❓ Can I use this on client stores?</h3>
-        <p style="color: #ccc;">Absolutely! The unlimited license allows you to use this section on as many stores as you want - your own stores or client projects. No per-store fees, ever.</p>
-      </div>
-      
-      <div class="docs-block">
-        <h3>❓ Do I need coding knowledge?</h3>
-        <p style="color: #ccc;">No! Installation takes 2 minutes (just copy & paste). After that, everything is customizable through Shopify's visual Theme Editor - colors, images, text, links. Zero coding required.</p>
-      </div>
-      
-      <div class="docs-block">
-        <h3>❓ What if I need help?</h3>
-        <p style="color: #ccc;">You get 30 days of priority email support. Most questions are answered within 24 hours. I can even help with minor customizations if needed.</p>
-      </div>
+      <a href="#" class="btn-primary" style="width: 100%; display: block; text-align: center;" data-lang="en" class="show">Purchase Now</a>
+      <a href="#" class="btn-primary" style="width: 100%; display: block; text-align: center;" data-lang="de">Jetzt Kaufen</a>
     </div>
   </section>
 
@@ -1346,114 +1208,69 @@
   </footer>
 
   <script>
-    // Mobile Card Toggle
-    (function() {
-      'use strict';
+    // ============================================
+    // LANGUAGE TOGGLE
+    // ============================================
+    let currentLang = 'en';
 
-      function initHeroCards(container) {
-        const wrappers = container.querySelectorAll('.hero-card-wrapper');
-        const mobileContainer = container.querySelector('.hero-mobile-container') || container.querySelector('.hero-cards-container');
-
-        if (!mobileContainer || wrappers.length === 0) return;
-
-        function activateCard(targetWrapper) {
-          const card = targetWrapper.querySelector('.hero-card');
-          if (!card) return;
-
-          const isAlreadyActive = targetWrapper.classList.contains('is-active');
-
-          wrappers.forEach(w => {
-            w.classList.remove('is-active');
-            const c = w.querySelector('.hero-card');
-            if (c) c.setAttribute('aria-expanded', 'false');
-          });
-
-          if (!isAlreadyActive) {
-            targetWrapper.classList.add('is-active');
-            card.setAttribute('aria-expanded', 'true');
-          }
+    function setLanguage(lang) {
+      currentLang = lang;
+      
+      // Update buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent === lang.toUpperCase()) {
+          btn.classList.add('active');
         }
-
-        function closeAllCards() {
-          wrappers.forEach(w => {
-            w.classList.remove('is-active');
-            const c = w.querySelector('.hero-card');
-            if (c) c.setAttribute('aria-expanded', 'false');
-          });
+      });
+      
+      // Show/hide elements
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.add('show');
+        } else {
+          el.classList.remove('show');
         }
+      });
+    }
 
-        function handleClick(e) {
-          if (e.target.closest('.hero-card-btn')) {
-            e.stopPropagation();
-            return;
-          }
+    // ============================================
+    // DEMO CONTROLS
+    // ============================================
+    function showDesktopDemo() {
+      document.getElementById('desktop-demo').classList.add('active');
+      document.getElementById('mobile-demo').classList.remove('active');
+      document.getElementById('column-controls').style.display = 'flex';
+      document.getElementById('btn-desktop').classList.add('active');
+      document.getElementById('btn-mobile').classList.remove('active');
+    }
 
-          const clickedCard = e.target.closest('.hero-card');
+    function showMobileDemo() {
+      document.getElementById('desktop-demo').classList.remove('active');
+      document.getElementById('mobile-demo').classList.add('active');
+      document.getElementById('column-controls').style.display = 'none';
+      document.getElementById('btn-desktop').classList.remove('active');
+      document.getElementById('btn-mobile').classList.add('active');
+    }
 
-          if (clickedCard) {
-            const wrapper = clickedCard.closest('.hero-card-wrapper');
-            if (!wrapper) return;
-            e.preventDefault();
-            activateCard(wrapper);
-          } else if (!e.target.closest('.hero-card-wrapper')) {
-            closeAllCards();
-          }
-        }
-
-        mobileContainer.addEventListener('click', handleClick);
-      }
-
-      // Init for main demo
-      initHeroCards(document.getElementById('desktop-demo'));
-      initHeroCards(document.getElementById('mobile-demo'));
-    })();
-
-    // Column Switcher
     function showColumns(num) {
       const wrapper = document.getElementById('split-wrapper');
       const col3 = document.getElementById('col3');
       const col4 = document.getElementById('col4');
 
       wrapper.className = 'hero-split-wrapper cols-' + num;
-
       col3.style.display = num >= 3 ? 'flex' : 'none';
       col4.style.display = num >= 4 ? 'flex' : 'none';
 
       // Update buttons
-      document.querySelectorAll('.demo-btn:not(.theme-btn)').forEach(btn => {
+      document.querySelectorAll('#column-controls .demo-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.textContent.includes(num + ' Column')) {
+        if (btn.textContent.includes(num)) {
           btn.classList.add('active');
         }
       });
     }
 
-    // Device Switcher
-    function showMobileDemo() {
-      document.getElementById('desktop-demo').style.display = 'none';
-      document.getElementById('mobile-demo').classList.add('active');
-      updateDeviceButtons('mobile');
-    }
-
-    function showDesktopDemo() {
-      document.getElementById('desktop-demo').style.display = 'block';
-      document.getElementById('mobile-demo').classList.remove('active');
-      updateDeviceButtons('desktop');
-    }
-
-    function updateDeviceButtons(active) {
-      document.querySelectorAll('.demo-btn:not(.theme-btn)').forEach(btn => {
-        if (btn.textContent.includes('Mobile') || btn.textContent.includes('Desktop')) {
-          btn.classList.remove('active');
-          if ((active === 'mobile' && btn.textContent.includes('Mobile')) ||
-              (active === 'desktop' && btn.textContent.includes('Desktop'))) {
-            btn.classList.add('active');
-          }
-        }
-      });
-    }
-
-    // Theme Switcher
     function setTheme(theme) {
       document.querySelectorAll('.split-hero-section').forEach(section => {
         section.className = section.className.replace(/theme-\w+/g, '');
@@ -1468,7 +1285,40 @@
       });
     }
 
-    // Smooth scroll
+    // ============================================
+    // MOBILE CARD TOGGLE
+    // ============================================
+    (function() {
+      function initHeroCards(container) {
+        const wrappers = container.querySelectorAll('.hero-card-wrapper');
+        if (wrappers.length === 0) return;
+
+        function activateCard(targetWrapper) {
+          const isActive = targetWrapper.classList.contains('is-active');
+          wrappers.forEach(w => w.classList.remove('is-active'));
+          if (!isActive) {
+            targetWrapper.classList.add('is-active');
+          }
+        }
+
+        container.addEventListener('click', (e) => {
+          if (e.target.closest('.hero-card-btn')) return;
+          const card = e.target.closest('.hero-card');
+          if (card) {
+            e.preventDefault();
+            activateCard(card.closest('.hero-card-wrapper'));
+          } else if (!e.target.closest('.hero-card-wrapper')) {
+            wrappers.forEach(w => w.classList.remove('is-active'));
+          }
+        });
+      }
+
+      initHeroCards(document.getElementById('mobile-demo'));
+    })();
+
+    // ============================================
+    // SMOOTH SCROLL
+    // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -1478,6 +1328,9 @@
         }
       });
     });
+
+    // Initialize language on load
+    setLanguage('en');
   </script>
 
 </body>
